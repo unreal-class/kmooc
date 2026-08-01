@@ -17,6 +17,17 @@ if errorlevel 1 (
   exit /b 1
 )
 
+echo.
+echo Recent commits:
+git log -3 --pretty=format:"%%h  %%ad  %%s" --date=short
+if errorlevel 1 (
+  echo Failed to read recent commits.
+  pause
+  exit /b 1
+)
+echo.
+echo.
+
 for /f "delims=" %%B in ('git branch --show-current') do set "BRANCH=%%B"
 if not defined BRANCH (
   echo Could not determine the current branch.
