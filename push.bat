@@ -19,7 +19,7 @@ if errorlevel 1 (
 
 echo.
 echo Recent commits:
-git log -3 --pretty=format:"%%h  %%ad  %%s" --date=short
+git log -5 --pretty=format:"%%h  %%ad  %%s" --date=short
 if errorlevel 1 (
   echo Failed to read recent commits.
   pause
